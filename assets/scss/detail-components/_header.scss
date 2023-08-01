@@ -1,0 +1,42 @@
+@use '../components/mixins' as mixin;
+
+$base-color: #d11117;
+
+.breadcrumbs-container {
+    ul {
+        list-style: none;
+        padding: 0;
+
+        .list-page {
+            display: inline;
+            @include mixin.main-font(16px, 400);
+            text-decoration: none;
+            color: black;
+
+            &:hover {
+                color: $base-color;
+                cursor: pointer;
+            }
+        }
+    }
+    
+}
+
+.detail-title {
+
+    h1 {
+        @include mixin.main-font(40px, 700);
+        margin-bottom: 1em
+    }
+    
+    .detail-category {
+        @include mixin.main-font(20px, 700);
+        color: $base-color;
+        @include mixin.margin-padding();
+    }
+
+    .detail-time {
+        @include mixin.main-font(16px, 700);
+        color: grey
+    }
+}

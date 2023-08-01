@@ -1,0 +1,71 @@
+@use "mixins" as mixin;
+
+$base-color: #d11117;
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .form-header {
+        height: fit-content;
+        @include mixin.main-font(20px, 600);
+        color: darken($base-color, $amount: 20);
+    }
+
+    .form-input {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 20px;
+
+        label {
+            @include mixin.main-font(16px, 500);
+            color: darken($color: $base-color, $amount: 15)
+        }
+
+        input, textarea {
+            height:30px;
+            width: 400px;
+            border-radius: 10px;
+            padding-inline: 10px;
+
+            &:focus {
+                border-color: $base-color;
+            }
+            &:valid {
+                border-color: black;
+            }
+        }
+    }
+
+    .buttons {
+        .input-buttons {
+            padding: 10PX;
+            border: solid 0.5px black;
+            border-radius: 10px;
+            padding-inline: 30px;
+            @include mixin.main-font(16px, 400);
+            color: $base-color;
+            background-color: white;
+            text-decoration: none;
+
+            &:hover {
+                @include mixin.main-font(16px, 400);
+                color: white;
+                background-color: $base-color;
+                cursor: pointer;
+            }
+
+            &:active {
+                background-color: darken($color: $base-color, $amount: 20);
+            }
+        }
+    }
+}
+
+.loading-div {
+    @include mixin.main-font(16px, 400);
+    color: $base-color;
+}

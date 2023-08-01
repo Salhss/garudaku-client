@@ -1,0 +1,150 @@
+@use "mixins" as mixin;
+
+$base-color: #d11117;
+$hero-height : 500px;
+$padding-main: 10px;
+$line-height : 25px;
+$hightlight-image : (
+    'height': 400px,
+    'width' : 500px
+);
+
+.hero-main {
+    height: $hero-height;
+    @include mixin.display-flex(space-evenly);
+    margin-bottom: 30px;
+}
+
+.news-highlight {
+    height: $hero-height - 30;
+    width: 800px;
+    padding: $padding-main;
+    background-color: white;
+    @include mixin.display-flex();
+}
+
+.news-highlight-container {
+    @include mixin.display-flex();
+    border: solid rgb(187, 186, 186) 0.5px;
+    height: $hero-height - 60;
+    padding: $padding-main;
+    padding-inline: 15px
+}
+
+.highlight-container {
+    @include mixin.display-flex();
+    flex-direction: row;
+    text-decoration: none;
+    color: black;
+}
+
+.news-highlight:hover { 
+    cursor: pointer;
+    .highlight-header {
+        color: $base-color;
+    }
+    .image-zoom { 
+        .highlight-image-content img {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.highlight-content {
+    width: 300px;
+
+    .highlight-header {
+        @include mixin.main-font(30px, 500);
+    }
+}
+
+.news-category {
+    @include mixin.main-font(13px, 400);
+    color: $base-color;
+}
+
+.news-content {
+    @include mixin.main-font(16px, 400);
+    line-height: $line-height;
+}
+
+.image-wrapper {
+    width: map-get($hightlight-image, 'width');
+    height: map-get($hightlight-image, 'height');
+    margin-left: 25px;
+    
+    .image-zoom {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+
+        .highlight-image-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            img {
+                transition: 0.4s ease;
+                width: map-get($hightlight-image, 'width');
+                height: map-get($hightlight-image, 'height');
+            }
+        }
+        
+    }
+}
+
+
+.news-header {
+    margin-left: 20px;
+    height: $hero-height;
+    padding-inline: 10px;
+    width: 25%;
+
+    p {
+        @include mixin.main-font(20px, 500);
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+}
+
+.news-tranding-container {
+    max-height: $hero-height - 90;
+    overflow-y: auto
+}
+
+.news-tranding-card{
+    @include mixin.display-flex();
+    flex-direction: row;
+    gap: 18px;
+    margin-block: 20px;
+    padding-inline: 10px;
+    padding-block: 5px;
+
+    &:hover {
+        background-color: rgb(230, 230, 230);
+        cursor: not-allowed;
+
+        .list-number {
+            color: black;
+        }
+        .news-tranding-title {
+            color: $base-color;
+        }
+    }
+
+    &:active {
+        background-color: rgb(188, 188, 188);
+    }
+}
+
+.list-number {
+    @include mixin.main-font(40px, 500);
+    color: gray
+}
+
+.news-tranding-title {
+    @include mixin.main-font(20px, 500);
+    margin-bottom: 5px;
+}

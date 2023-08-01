@@ -1,0 +1,69 @@
+@use '../components/mixins' as mixin;
+
+$base-color: #d11117;
+$image : (
+    'min-height': 500px,
+    'max-height' : 700px,
+    'min-width' : 700px,
+    'max-width' : 900px
+);
+
+.detail-content {
+    margin-bottom: 50px;
+
+    .detail-image {
+        @include mixin.display-flex();
+        flex-direction: column;
+    
+        img {
+            min-height: map-get($image, 'min-height');
+            min-width: map-get($image, 'min-width');
+            max-height: map-get($image, 'max-height');
+            max-width: map-get($image, 'max-width');
+        }
+    
+        p {
+            @include mixin.main-font(15px, 400);
+            color: gray;
+            width: map-get($image, 'max-width');
+        }
+    }
+    
+    .detail-description {
+        line-height: 25px;
+        @include mixin.main-font(16px, 400);
+        p {
+            color: rgb(47, 47, 47);
+        }
+        strong + p {
+            display: inline;
+        }
+    }
+}
+
+.edit-button {
+    margin-top: 20px;
+    border: solid 0.5px;
+    width: fit-content;
+    padding: 12px;
+    border-radius: 10px;
+    @include mixin.main-font(16px, 500);
+
+    .edit {
+        color: $base-color;
+        text-decoration: none;
+    }
+    
+    &:hover {
+        color: $base-color;
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: 0.2s ease;
+    }
+
+    &:active {
+        color: darken($color: $base-color, $amount: 10);
+        transform: scale(1);
+        transition: 0.1s ease;
+    }
+}

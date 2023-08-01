@@ -1,0 +1,31 @@
+@use "mixins" as mixin;
+
+$base-color: #d11117;
+$hero-height : 250px;
+$padding-main: 5px;
+$line-height : 12px;
+$hightlight-image : (
+    'height': 200px,
+    'width' : 250px
+);
+
+@media screen and (max-width: 430px) {
+    .header-container {
+        padding: 5px;
+        padding-inline: 10px;
+       
+        .header-logo img {
+            width: 120px;
+        }
+        .header-right {
+            gap: 10px;
+    
+            img {
+                width: 15px;
+            }
+            .header-right-user{
+                width: 22px;
+            }
+        }
+    }
+}

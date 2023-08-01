@@ -1,0 +1,33 @@
+@use "_mixins" as mixin;
+
+$base-color: #d11117;
+
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    background-color: $base-color;
+    margin: 0;
+    padding: 10px;
+    padding-inline: 20px;
+    @include mixin.display-flex(space-between);
+    
+    .header-logo img {
+        width: 150px;
+    }
+    .header-right {
+        @include mixin.display-flex();
+        gap: 20px;
+
+        img {
+            width: 20px;
+        }
+        .header-right-user{
+            width: 32px;
+            border-radius: 20px;
+        }
+    }
+}
